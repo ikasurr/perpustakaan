@@ -6,7 +6,7 @@ Prodi : TRPL A1
 
 # Tema Kasus
 
-Tema yang dipilih adalah _Sistem Perpustakaan Sederhana_.
+Tema yang dipilih adalah Sistem Perpustakaan.
 Aplikasi ini merupakan sistem perpustakaan sederhana berbasis web
 yang digunakan untuk mengelola data buku (menampilkan, menambah, mengubah dan menghapus).
 
