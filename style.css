@@ -1,0 +1,314 @@
+/* =========================
+   GLOBAL
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Candara, Arial, sans-serif;
+}
+
+body {
+  background: #0b1f3a;
+  color: #333;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+.navbar {
+  background: #07162a;
+  color: white;
+  padding: 15px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* BRAND */
+.brand {
+  font-size: 26px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: white;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 30px auto;
+}
+
+/* =========================
+   TITLE
+========================= */
+h2 {
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+/* =========================
+   CARD
+========================= */
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  color: #333;
+}
+
+/* =========================
+   HEADER CARD
+========================= */
+.header-card {
+  background: #07162a;
+  color: white;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-flex h2 {
+  margin: 0;
+  font-size: 20px;
+  color: white;
+}
+
+/* =========================
+   TABLE
+========================= */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+}
+
+th {
+  background: #07162a;
+  color: white;
+  padding: 12px;
+}
+
+td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+  color: #333;
+}
+
+tr:hover {
+  background: #f3f6ff;
+}
+
+/* =========================
+   BUTTON BASE (FIX SPACING)
+========================= */
+.btn {
+  padding: 8px 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  color: white;
+  font-size: 14px;
+  display: inline-block;
+  transition: 0.2s;
+  font-weight: 500;
+  margin: 2px; /* <<< INI FIX JARAK */
+}
+
+.btn:hover {
+  transform: none;
+  opacity: 0.9;
+}
+
+/* WARNA BUTTON */
+.btn-add {
+  background: #1f4b99;
+}
+
+.btn-edit {
+  background: #f0ad4e;
+}
+
+.btn-delete {
+  background: #d9534f;
+}
+
+.btn-back {
+  background: #6c757d;
+}
+
+/* =========================
+   AKSI BUTTON (FIX JARAK RAPIH)
+========================= */
+.aksi {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px; /* <<< INI FIX UTAMA */
+  flex-wrap: wrap;
+}
+
+/* CENTER */
+.center {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+/* LOGOUT */
+.logout {
+  background: #d9534f;
+  padding: 6px 10px;
+  border-radius: 6px;
+  color: white;
+  text-decoration: none;
+}
+
+/* =========================
+   LOGIN
+========================= */
+.login-wrapper {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #0b1f3a;
+}
+
+.login-card {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  width: 320px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  color: #333;
+}
+
+.login-card h2 {
+  color: #07162a;
+}
+
+.login-card input {
+  width: 100%;
+  margin: 8px 0;
+  padding: 10px;
+  font-family: Candara;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  color: #333;
+}
+
+.login-card input:focus {
+  border-color: #1f4b99;
+  outline: none;
+  box-shadow: 0 0 5px rgba(31, 75, 153, 0.3);
+}
+
+.login-card button {
+  width: 100%;
+  padding: 10px;
+  background: #1f4b99;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* =========================
+   FORM (TAMBAH & EDIT)
+========================= */
+.form-wrapper {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #0b1f3a;
+}
+
+.form-card {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  width: 350px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  color: #333;
+}
+
+.form-card h2 {
+  color: #07162a;
+}
+
+.form-card input {
+  width: 100%;
+  margin: 8px 0;
+  padding: 10px;
+  font-family: Candara;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  color: #333;
+}
+
+.form-card input:focus {
+  border-color: #1f4b99;
+  outline: none;
+  box-shadow: 0 0 5px rgba(31, 75, 153, 0.3);
+}
+
+.form-card button {
+  width: 100%;
+  padding: 10px;
+  background: #1f4b99;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* BACK BUTTON (SAMAIN DENGAN BUTTON) */
+.btn-back {
+  background: #6c757d;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  margin: 2px;
+}
+
+/* =========================
+   ALERT NOTIFICATION
+========================= */
+.alert {
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.success {
+  background: #d4edda;
+  color: #155724;
+}
+
+.error {
+  background: #f8d7da;
+  color: #721c24;
+}
