@@ -14,7 +14,7 @@ yang digunakan untuk mengelola data buku (menampilkan, menambah, mengubah dan me
 
 1. Login dan Logout (menggunakan Session)
 2. Password dienkripsi menggunakan password_hash()
-3. Tambah buku, edit buku, hapus buku dan tampil data buku.
+3. CRUD Data Buku
 
 # Database
 
