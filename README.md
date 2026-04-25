@@ -15,6 +15,7 @@ yang digunakan untuk mengelola data buku (menampilkan, menambah, mengubah dan me
 1. Login dan Logout (menggunakan Session)
 2. Password dienkripsi menggunakan password_hash()
 3. CRUD Data Buku
+4. CRUD Data Kategori
 
 # Database
 
@@ -22,3 +23,4 @@ Menggunakan 2 tabel:
 
 1. users (untuk login)
 2. buku (untuk data buku)
+3. kategori (untuk data kategori)
