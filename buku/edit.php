@@ -2,6 +2,7 @@
 session_start();
 include "../config/koneksi.php";
 
+$kategori = mysqli_query($conn, "SELECT * FROM kategori");
 // AMBIL DATA UNTUK FORM
 $id = $_GET['id'];
 $data = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM buku WHERE id='$id'"));
@@ -13,10 +14,11 @@ if(isset($_POST['submit'])) {
     $judul = $_POST['judul'];
     $penulis = $_POST['penulis'];
     $tahun = $_POST['tahun'];
+    $kategori_id = $_POST['kategori_id'];
 
     $update = mysqli_query($conn,
         "UPDATE buku 
-         SET judul='$judul', penulis='$penulis', tahun='$tahun'
+         SET judul='$judul', penulis='$penulis', tahun='$tahun', kategori_id= '$kategori_id'
          WHERE id='$id'"
     );
 
@@ -53,8 +55,19 @@ if(isset($_POST['submit'])) {
             <input type="text" name="judul" value="<?= $data['judul']; ?>" required>
             <input type="text" name="penulis" value="<?= $data['penulis']; ?>" required>
             <input type="text" name="tahun" value="<?= $data['tahun']; ?>" required>
-
-            <button type="submit" name="submit">Update</button>
+            <div class="card">
+                <select name="kategori_id" class="kategori" required>
+                    <option value="" disabled selected>-- Pilih Kategori --</option>
+                    <?php while($k = mysqli_fetch_assoc($kategori)) { ?>
+                        <option value="<?= $k['id']; ?>">
+                            <?= $k['nama_kategori']; ?>
+                        </option>
+                    <?php } ?>
+                </select>
+            </div>
+            <button type="submit" name="submit" class="btn btn-add" style="margin-top:15px;">
+                Simpan
+            </button>
 
         </form>
 

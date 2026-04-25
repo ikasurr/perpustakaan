@@ -7,7 +7,14 @@ if (!isset($_SESSION['login'])) {
     exit;
 }
 
-$buku = mysqli_query($conn, "SELECT * FROM buku ORDER BY id DESC");
+/* ✅ SUDAH JOIN KATEGORI */
+$buku = mysqli_query($conn, "
+SELECT buku.*, kategori.nama_kategori 
+FROM buku 
+LEFT JOIN kategori 
+ON buku.kategori_id = kategori.id
+ORDER BY buku.id DESC
+");
 ?>
 
 <!DOCTYPE html>
@@ -19,22 +26,27 @@ $buku = mysqli_query($conn, "SELECT * FROM buku ORDER BY id DESC");
 
 <body>
 
+<!-- NAVBAR -->
 <div class="navbar">
     <div class="brand">PERPUSTAKAAN</div>
 
     <div class="nav-right">
         Hi, <b><?= htmlspecialchars($_SESSION['username']); ?></b>
-        <a href="auth/logout.php" class="btn btn-delete btn-small">Logout</a>
+        <a href="auth/logout.php" class="btn btn-delete">Logout</a>
     </div>
 </div>
 
 <div class="container">
 
-    <!-- HEADER CARD -->
+    <!-- HEADER -->
     <div class="header-card">
         <div class="header-flex">
             <h2>Data Buku</h2>
-            <a href="buku/tambah.php" class="btn btn-add">+ Tambah Buku</a>
+
+            <div class="aksi">
+                <a href="buku/tambah.php" class="btn btn-add">+ Tambah Buku</a>
+                <a href="kategori/index.php" class="btn btn-add">Kelola Kategori</a>
+            </div>
         </div>
     </div>
 
@@ -61,9 +73,11 @@ $buku = mysqli_query($conn, "SELECT * FROM buku ORDER BY id DESC");
                     <th>Judul</th>
                     <th>Penulis</th>
                     <th>Tahun</th>
+                    <th>Kategori</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
+
             <tbody>
 
             <?php if(mysqli_num_rows($buku) > 0): ?>
@@ -74,6 +88,12 @@ $buku = mysqli_query($conn, "SELECT * FROM buku ORDER BY id DESC");
                     <td><?= htmlspecialchars($row['judul']); ?></td>
                     <td><?= htmlspecialchars($row['penulis']); ?></td>
                     <td><?= htmlspecialchars($row['tahun']); ?></td>
+
+                    <!-- KATEGORI -->
+                    <td>
+                        <?= $row['nama_kategori'] ?? '-' ?>
+                    </td>
+
                     <td class="aksi">
                         <a href="buku/edit.php?id=<?= $row['id']; ?>" class="btn btn-edit">Edit</a>
                         <a href="buku/hapus.php?id=<?= $row['id']; ?>"
@@ -86,7 +106,7 @@ $buku = mysqli_query($conn, "SELECT * FROM buku ORDER BY id DESC");
                 <?php } ?>
             <?php else: ?>
                 <tr>
-                    <td colspan="5" class="empty">
+                    <td colspan="6" class="empty">
                         Belum ada data buku.
                     </td>
                 </tr>

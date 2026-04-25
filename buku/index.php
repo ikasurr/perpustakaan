@@ -7,6 +7,13 @@ if (!isset($_SESSION['login'])) {
     exit;
 }
 
+$data = mysqli_query($conn, "
+SELECT buku.*, kategori.nama_kategori 
+FROM buku 
+LEFT JOIN kategori 
+ON buku.kategori_id = kategori.id
+");
+
 $data = mysqli_query($conn, "SELECT * FROM buku");
 ?>
 
@@ -23,6 +30,7 @@ $data = mysqli_query($conn, "SELECT * FROM buku");
     <th>Judul</th>
     <th>Penulis</th>
     <th>Tahun</th>
+    <th>Kategori</th>
     <th>Aksi</th>
 </tr>
 
@@ -31,6 +39,7 @@ $data = mysqli_query($conn, "SELECT * FROM buku");
     <td><?= $row['judul']; ?></td>
     <td><?= $row['penulis']; ?></td>
     <td><?= $row['tahun']; ?></td>
+    <td><?= $row['nama_kategori']; ?></td>
     <td>
         <a href="edit.php?id=<?= $row['id']; ?>">Edit</a>
         <a href="hapus.php?id=<?= $row['id']; ?>">Hapus</a>
