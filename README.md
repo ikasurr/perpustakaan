@@ -19,7 +19,7 @@ yang digunakan untuk mengelola data buku (menampilkan, menambah, mengubah dan me
 
 # Database
 
-Menggunakan 2 tabel:
+Menggunakan 3 tabel:
 
 1. users (untuk login)
 2. buku (untuk data buku)
